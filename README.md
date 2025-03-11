@@ -7,7 +7,7 @@ go to Frontend folder and run these commands
 
  after this go to Backend and run these 
       
-      -> npm i 
+     -> npm i 
      -> npm start
 
    

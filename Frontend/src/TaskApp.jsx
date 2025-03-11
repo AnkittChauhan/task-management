@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import minibgImg from './assets/Pikachu.jpg';
+
 
 const TaskApp = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  
 
   const PORT = import.meta.env.VITE_PORT || 'http://localhost:5000/tasks';
   const API_URL = PORT 
@@ -81,8 +84,9 @@ const TaskApp = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto pt-10 p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold text-center mb-6">Task Manager</h1>
+    <div className="max-w-md mx-auto py-5 p-2 bg-white rounded-lg shadow-md">
+       <img src={minibgImg} alt="mini-bg-img" className="" />
+      <h1 className="text-2xl font-bold text-center my-6">Cognocore Task Manager</h1>
       
       {/* Task Form */}
       <form onSubmit={handleAddTask} className="mb-6">

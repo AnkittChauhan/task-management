@@ -7,7 +7,8 @@ const TaskApp = () => {
   const [error, setError] = useState(null);
 
   // API URL - change this to match your backend
-  const API_URL = 'http://localhost:5000/tasks';
+  const PORT = import.meta.env.VITE_PORT || 'http://localhost:5000/tasks';
+  const API_URL = PORT 
 
   // Fetch all tasks
   useEffect(() => {

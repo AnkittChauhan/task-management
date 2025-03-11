@@ -6,7 +6,6 @@ const TaskApp = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // API URL - change this to match your backend
   const PORT = import.meta.env.VITE_PORT || 'http://localhost:5000/tasks';
   const API_URL = PORT 
 
@@ -111,11 +110,10 @@ const TaskApp = () => {
         </div>
       )}
       
-      {/* Loading State */}
+
       {isLoading ? (
         <p className="text-center text-gray-500">Loading tasks...</p>
       ) : (
-        /* Task List */
         <ul className="space-y-2">
           {tasks.length === 0 ? (
             <p className="text-center text-gray-500">No tasks yet. Add one above!</p>

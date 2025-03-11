@@ -34,8 +34,7 @@ const taskSchema = new mongoose.Schema({
 
 const Task = mongoose.model('Task', taskSchema);
 
-// Routes
-// GET all tasks
+
 app.get('/tasks', async (req, res) => {
   try {
     const tasks = await Task.find().sort({ createdAt: -1 });
@@ -45,7 +44,7 @@ app.get('/tasks', async (req, res) => {
   }
 });
 
-// POST create task
+
 app.post('/tasks', async (req, res) => {
   try {
     const task = new Task({
@@ -58,7 +57,6 @@ app.post('/tasks', async (req, res) => {
   }
 });
 
-// DELETE task
 app.delete('/tasks/:id', async (req, res) => {
   try {
     const task = await Task.findByIdAndDelete(req.params.id);
@@ -71,7 +69,7 @@ app.delete('/tasks/:id', async (req, res) => {
   }
 });
 
-// Start server
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

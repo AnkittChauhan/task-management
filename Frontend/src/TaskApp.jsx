@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import minibgImg from './assets/Pikachu.jpg';
+import { Toaster, toast } from 'sonner';
 
 
 const TaskApp = () => {
@@ -59,6 +60,7 @@ const TaskApp = () => {
       const addedTask = await response.json();
       setTasks([...tasks, addedTask]);
       setNewTask('');
+      toast.success('Task added Successfully') 
     } catch (err) {
       setError('Failed to add task. Please try again.');
       console.error('Error adding task:', err);
@@ -73,10 +75,11 @@ const TaskApp = () => {
       });
       
       if (!response.ok) {
-        throw new Error('Failed to delete task');
+        throw new toast.warn('Failed to delete task') 
       }
       
       setTasks(tasks.filter(task => task._id !== id));
+      toast.error('Deleted Successfully') 
     } catch (err) {
       setError('Failed to delete task. Please try again.');
       console.error('Error deleting task:', err);
@@ -104,6 +107,7 @@ const TaskApp = () => {
           >
             Add
           </button>
+          <Toaster position="top-center" expand={false} richColors />
         </div>
       </form>
       
